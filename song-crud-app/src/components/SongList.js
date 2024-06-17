@@ -8,6 +8,12 @@ const SongListContainer = styled.div`
   padding: 20px;
 `;
 
+const songItemStyle = css`
+  list-style: none;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+`;
+
 const SongList = () => {
   const dispatch = useDispatch();
   const { songs, loading, error } = useSelector((state) => state.songs);
@@ -24,7 +30,7 @@ const SongList = () => {
       <h1>Song List</h1>
       <ul>
         {songs.map((song) => (
-          <li key={song.id}>
+          <li key={song.id} css={songItemStyle}>
             {song.title} by {song.artist}
           </li>
         ))}
